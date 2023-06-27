@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>   
+    
+    <style>
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        label, a {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Monserat Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="w-full h-screen overflow-hidden">
+        <form class="grid grid-cols-7 h-fit bg-[#FFFFFF] text-[#1D1D1F] text-lg montserrat-font border-b drop-shadow" method="POST"> 
+            <div class="col-span-2 flex justify-center items-center py-2 font-semibold antialiased">
+                TradeQuest
+            </div>
+            <div class="flex justify-center items-center py-2 font-medium text-[#229f89] border-r hover:underline hover:underline-offset-4 antialiased">
+                {{ userData['displayName'] }}
+            </div>
+            <div class="flex justify-center items-center py-2 border-r underline underline-offset-4 antialiased">
+                <button type="submit" name="simulator_page" value="clicked">Trading Simulator</button>
+            </div>
+            <div class="flex justify-center items-center py-2 border-r hover:underline hover:underline-offset-4 antialiased">
+                <button type="submit" name="recommend_page" value="clicked">Recommendation</button>
+            </div>
+            <div class="flex justify-center items-center py-2 border-r hover:underline hover:underline-offset-4 antialiased">
+                <button type="submit" name="about_page" value="clicked">About Us</button>
+            </div>
+            <div class="flex justify-center items-center py-2 hover:underline hover:underline-offset-4 antialiased">
+                <button type="submit" name="signout" value="clicked">Sign Out</button>
+            </div>
+        </form>
+
+        <div class="h-fit bg-[#FFFFFF] border-b">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+                {
+                "symbols": [
+                {
+                    "description": "",
+                    "proName": "NASDAQ:AAPL"
+                },
+                {
+                    "description": "",
+                    "proName": "NASDAQ:MSFT"
+                },
+                {
+                    "description": "",
+                    "proName": "NASDAQ:TSLA"
+                },
+                {
+                    "description": "",
+                    "proName": "NASDAQ:NVDA"
+                },
+                {
+                    "description": "",
+                    "proName": "NASDAQ:AMZN"
+                },
+                {
+                    "description": "",
+                    "proName": "NASDAQ:GOOGL"
+                },
+                {
+                    "description": "",
+                    "proName": "NASDAQ:NFLX"
+                }
+                ],
+                "showSymbolLogo": true,
+                "colorTheme": "light",
+                "isTransparent": true,
+                "displayMode": "regular",
+                "locale": "en"
+                }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+
+        <div class="h-full bg-[#FFFFFF]">
+            <div class="h-screen">
+                <!-- Enter stock -->
+                <div class="flex justify-center items-center pt-16">
+                    <form autocomplete="off" method="POST">
+                        <div class="flex justify-center mb-8 tracking-tight font-semibold text-3xl antialiased text-[#1D1D1F] montserrat-font">
+                            Trade NASDAQ 100 Stock
+                        </div>
+
+                        <!-- Email and Password box -->
+                        <div class="">
+                            <label class="flex justify-center text-xl font-light mb-2 antialiased">Enter your stock symbol</label>
+                            <input type="text" name="stock_symbol" class="border w-full text-base mb-4 px-2 py-2 rounded-md drop-shadow-sm focus:outline-none focus:ring-0 focus:rounded focus:border-gray-600"></input>
+                        </div>
+                        <div>
+                            <a href="https://www.finscreener.org/screener/stock-screener/nq100" class="flex justify-center font-semibold underline underline-offset-4 antialiased">Don't know yours?</a>
+                        </div>
+                        <!-- Submit button -->
+                        <div class="flex justify-center mt-6">
+                            <!--FIX: Turn this into button for signin later-->
+                            <button type ="submit" name="start" value="clicked" class="rounded-full bg-black text-white px-12 py-3">Start trading</button>
+                        </div>
+                        <div class="flex justify-center mt-2">
+                            {% if symbol_error == True %}
+                            <label class="flex items-center text-lg font-light mb-10 text-red-700 antialiased">Invalid symbol</label>
+                            {% endif %}
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us</title>
+  <style>
+    h1 {
+        font-family: 'Montserrat', sans-serif;
+    }
+    label, a {
+        font-family: 'Montserrat', sans-serif;
+    }
+    .montserrat-font {
+        font-family: 'Montserrat', sans-serif;
+    }
+  </style>
+
+  <!-- Font Awesome -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+  <!-- Monserat Font -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+  <div class="w-full h-screen overflow-auto">
+
+    <form class="grid grid-cols-7 h-fit bg-[#FFFFFF] text-[#1D1D1F] text-lg montserrat-font border-b drop-shadow" method="POST"> 
+        <div class="col-span-2 flex justify-center items-center py-2 font-semibold antialiased">
+            TradeQuest
+        </div>
+        <div class="flex justify-center items-center py-2 font-medium text-[#229f89] border-r hover:underline hover:underline-offset-4 antialiased">
+            {{ userData['displayName'] }}
+        </div>
+        <div class="flex justify-center items-center py-2 border-r hover:underline hover:underline-offset-4 antialiased">
+            <button type="submit" name="simulator_page" value="clicked">Trading Simulator</button>
+        </div>
+        <div class="flex justify-center items-center py-2 border-r hover:underline hover:underline-offset-4 antialiased">
+            <button type="submit" name="recommend_page" value="clicked">Recommendation</button>
+        </div>
+        <div class="flex justify-center items-center py-2 border-r underline underline-offset-4 antialiased">
+            <button type="submit" name="about_page" value="clicked">About Us</button>
+        </div>
+        <div class="flex justify-center items-center py-2 hover:underline hover:underline-offset-4 antialiased">
+            <button type="submit" name="signout" value="clicked">Sign Out</button>
+        </div>
+    </form>
+
+    <div class="grid grid-rows-5 h-full montserrat-font">
+      <div class="grid grid-cols-3 overflow-clip">
+        <div class="flex justify-center items-center text-xl">Full-stack Developer</div>
+        <div class="flex justify-center items-center text-3xl font-semibold tracking-wide">Matt Nguyen</div>
+        <div class="flex justify-center items-center text-xl">Responsible for the trading system</div>
+      </div>
+      <div class="grid grid-cols-3 overflow-clip">
+        <div class="flex justify-center items-center text-xl">Back-end Developer</div>
+        <div class="flex justify-center items-center text-3xl font-semibold tracking-wide">Neil Luong</div>
+        <div class="flex justify-center items-center text-xl">Responsible for the user system</div>
+      </div>
+      <div class="grid grid-cols-3 overflow-clip">
+        <div class="flex justify-center items-center text-xl">Back-end Developer</div>
+        <div class="flex justify-center items-center text-3xl font-semibold tracking-wide">Bobby Nguyen</div>
+        <div class="flex justify-center items-center text-xl">Responsible for the support system</div>
+      </div>
+      <div class="grid grid-cols-3 overflow-clip">
+        <div class="flex justify-center items-center text-xl">Data Engineer</div>
+        <div class="flex justify-center items-center text-3xl font-semibold tracking-wide">Benji Bui</div>
+        <div class="flex justify-center items-center text-xl">Responsible for the market data</div>
+      </div>
+      <div class="grid grid-cols-3 overflow-clip">
+        <div class="flex justify-center items-center text-xl">UI/UX Designer</div>
+        <div class="flex justify-center items-center text-3xl font-semibold tracking-wide">Shaan Singh</div>
+        <div class="flex justify-center items-center text-xl">Responsible for the web design</div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

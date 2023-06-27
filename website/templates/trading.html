@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>   
+    
+    <style>
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        label, a {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .montserrat-font {
+            font-family: 'Montserrat', sans-serif;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Monserat Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <div class="w-full h-screen overflow-hidden">
+        <form class="grid grid-cols-7 h-fit bg-[#FFFFFF] text-[#1D1D1F] text-lg montserrat-font border-b drop-shadow" method="POST"> 
+            <div class="col-span-2 flex justify-center items-center py-2 font-semibold antialiased">
+                TradeQuest
+            </div>
+            <div class="flex justify-center items-center py-2 font-medium text-[#229f89] border-r hover:underline hover:underline-offset-4 antialiased">
+                {{ userData['displayName'] }}
+            </div>
+            <div class="flex justify-center items-center py-2 border-r underline underline-offset-4 antialiased">
+                <button type="submit" name="simulator_page" value="clicked">Trading Simulator</button>
+            </div>
+            <div class="flex justify-center items-center py-2 border-r hover:underline hover:underline-offset-4 antialiased">
+                <button type="submit" name="recommend_page" value="clicked">Recommendation</button>
+            </div>
+            <div class="flex justify-center items-center py-2 border-r hover:underline hover:underline-offset-4 antialiased">
+                <button type="submit" name="about_page" value="clicked">About Us</button>
+            </div>
+            <div class="flex justify-center items-center py-2 hover:underline hover:underline-offset-4 antialiased">
+                <button type="submit" name="signout" value="clicked">Sign Out</button>
+            </div>
+        </form>
+
+        <div class="">
+            <div class="grid grid-cols-2 h-screen bg-[#FFFFFF] text-[#1D1D1F]">
+                <!-- Chart on the left -->
+                <div class="grid grid-rows-2 ml-4">
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container mt-2">
+                        <div id="tradingview_37c82"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+                        <script type="text/javascript">
+                            new TradingView.widget(
+                                {   
+                                "width": "100%",
+                                "height": "100%",
+                                "symbol": "{{chart_symbol}}",
+                                "interval": "D",
+                                "timezone": "America/New_York",
+                                "theme": "light",
+                                "style": "1",
+                                "locale": "en",
+                                "toolbar_bg": "#f1f3f6",
+                                "enable_publishing": false,
+                                "allow_symbol_change": true,
+                                "container_id": "tradingview_37c82"
+                                }
+                            );
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+
+                    <!-- TradingView Widget BEGIN -->
+                    <div class="tradingview-widget-container mb-2">
+                        <div class="tradingview-widget-container__widget"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-technical-analysis.js" async>
+                        {
+                        "interval": "5m",
+                        "width": "100%",
+                        "isTransparent": true,
+                        "height": "100%",
+                        "symbol": "{{chart_symbol}}",
+                        "showIntervalTabs": true,
+                        "locale": "en",
+                        "colorTheme": "light"
+                        }
+                        </script>
+                    </div>
+                    <!-- TradingView Widget END -->
+                </div>
+                <!-- Trading on the right -->
+                <div class="grid grid-rows-2">
+                    
+                    <!-- Start trading -->
+                    <div class="flex items-center ml-16">
+                        <form action="#" method="POST">
+                            <h1 class="mb-10 mr-40 tracking-tight font-semibold text-3xl antialiased">Trade {{stock_symbol}} stock</h1>
+                            <label class="block text-lg font-light mb-2 antialiased">
+                                Current portfolio cost: <span class="text-sky-700">{{"$%.2f"|format(total_cost)}}</span>
+                            </label>
+                            <label class="block text-lg font-light mb-10 antialiased">
+                                Current volume: <span class="text-sky-700">{{total_volume}} shares</span>
+                            </label>
+
+                            <label class="block text-lg font-light mb-2 antialiased">
+                                Current portfolio value: 
+                                {% if total_value >= total_cost %}
+                                <span class="text-green-700 font-medium">${{"%.2f"|format(total_value)}}</span>
+                                {% else %}
+                                <span class="text-red-700 font-medium">${{"%.2f"|format(total_value)}}</span>
+                                {% endif %}
+                            </label>
+                            <label class="block text-lg font-light mb-10 antialiased">
+                                Current profit: 
+                                {% if total_value >= total_cost %}
+                                <span class="text-green-700 font-medium">${{"%.2f"|format(profit)}} ({{"%.2f"|format(profit_percent)}}%)</span>
+                                {% else %}
+                                <span class="text-red-700 font-medium">${{total_value}}</span>
+                                {% endif %}
+                            </label>
+                            
+                            <label class="block text-lg font-light mb-2 antialiased">
+                                Current market price: <span class="text-sky-700">{{"$%.2f"|format(market_price)}}</span>
+                            </label>
+                            <div class="block mb-2">
+                                <button type="submit" name="buy" value="clicked" class="rounded-lg bg-green-600 text-white px-4 py-2">Buy</button>
+                                <input type="text" name="volume-input" class="border text-base px-4 py-2 rounded-md focus:outline-none focus:ring-0 focus:rounded focus:border-gray-600" autocomplete="off" placeholder="Enter volume">
+                                <button type="submit" name="sell" value="clicked" class="rounded-lg bg-red-600 text-white px-4 py-2">Sell</button>
+                                
+                                {% if shares_error != 0 %}
+                                <label class="text-lg font-light mb-10 text-red-700 antialiased ">{{shares_error}}</label>
+                                {% endif %}
+                            </div>
+                        </form>
+                    </div>
+                    <!-- End trading -->
+
+                    <div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+
+</html>

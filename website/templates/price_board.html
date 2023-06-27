@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Price Board</title>   
+    
+    <style>
+        h1 {
+            font-family: 'Montserrat', sans-serif;
+        }
+        label, a {
+            font-family: 'Montserrat', sans-serif;
+        }
+        .helvetica-div {
+            font-family: Helvetica, Arial, sans-serif;
+        }
+    </style>
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" />
+    <!-- Monserat Font -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body>
+    <!-- Whole screen div -->
+    <!-- First row -->
+    <div class="grid grid-cols-5 w-full h-fit">
+        <div class="flex justify-start bg-red-600 p-3">
+            <p>Stock Trading Logo</p>
+        </div>
+        <div class="flex justify-end bg-green-600 p-3">
+            
+        </div>
+        <div class="flex justify-end bg-blue-600 p-3">
+            Search for stock
+        </div>
+        <div class="flex justify-end bg-red-600 p-3">
+            4
+        </div>
+        <div class="flex justify-center bg-blue-600 p-3">
+            Username
+        </div>
+    </div>
+    <div class="grid grid-cols-8 w-full h-fit text-lg">
+        <div class="flex justify-center bg-blue-600 p-1">
+            1
+        </div>
+        <div class="flex justify-center bg-red-600 p-1">
+            2
+        </div>
+        <div class="flex justify-center bg-blue-600 p-1">
+            3
+        </div>
+        <div class="flex justify-center bg-red-600 p-1">
+            About Us
+        </div>
+        <div class="flex justify-center bg-blue-600 p-1">
+            Price Board
+        </div>
+        <div class="flex justify-center bg-red-600 p-1">
+            Global Ranking
+        </div>
+        <div class="flex justify-center bg-blue-600 p-1">
+            Education
+        </div>
+        <div class="flex justify-center bg-red-600 p-1">
+            Contact Us
+        </div>
+    </div>
+    <!-- 3rd row -->
+    <div class="grid grid-cols-4 w-full h-fit align-top">
+        <div class="flex justify-end bg-blue-600 p-2">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                        "symbol": "NASDAQ:NDX",
+                        "width": "100%",
+                        "height": "100%",
+                        "locale": "en",
+                        "dateRange": "1M",
+                        "colorTheme": "dark",
+                        "trendLineColor": "rgba(41, 98, 255, 1)",
+                        "underLineColor": "rgba(41, 98, 255, 0.3)",
+                        "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                        "isTransparent": false,
+                        "autosize": true,
+                        "largeChartUrl": ""
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+        <div class="flex justify-end bg-red-600 p-2">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                    "symbol": "BLACKBULL:US30",
+                    "width": "100%",
+                    "height": "100%",
+                    "locale": "en",
+                    "dateRange": "1M",
+                    "colorTheme": "dark",
+                    "trendLineColor": "rgba(41, 98, 255, 1)",
+                    "underLineColor": "rgba(41, 98, 255, 0.3)",
+                    "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                    "isTransparent": false,
+                    "autosize": true,
+                    "largeChartUrl": ""
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+        <div class="flex justify-end bg-blue-600 p-2">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                    "symbol": "FRED:SP500",
+                    "width": "100%",
+                    "height": "100%",
+                    "locale": "en",
+                    "dateRange": "1M",
+                    "colorTheme": "dark",
+                    "trendLineColor": "rgba(41, 98, 255, 1)",
+                    "underLineColor": "rgba(41, 98, 255, 0.3)",
+                    "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                    "isTransparent": false,
+                    "autosize": true,
+                    "largeChartUrl": ""
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+        <div class="flex justify-end bg-red-600 p-2">
+            <!-- TradingView Widget BEGIN -->
+            <div class="tradingview-widget-container">
+                <div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                    {
+                    "symbol": "CAPITALCOM:RTY",
+                    "width": "100%",
+                    "height": "100%",
+                    "locale": "en",
+                    "dateRange": "1M",
+                    "colorTheme": "dark",
+                    "trendLineColor": "rgba(41, 98, 255, 1)",
+                    "underLineColor": "rgba(41, 98, 255, 0.3)",
+                    "underLineBottomColor": "rgba(41, 98, 255, 0)",
+                    "isTransparent": false,
+                    "autosize": true,
+                    "largeChartUrl": ""
+                    }
+                </script>
+            </div>
+            <!-- TradingView Widget END -->
+        </div>
+    </div>
+    <!-- Row 3 END -->
+
+    <!-- Row 4 -->
+    <div class="grid grid-cols-2 w-full h-fit helvetica-div">
+        <!-- Buy side -->
+        <div class="bg-yellow-600">
+            <form method="POST">
+                AUTO TRADING INDICATOR
+            </form>
+        </div>
+        <!-- Girl side -->
+        <div class="bg-green-600">here
+            <!--Add API receiver here-->
+            RESULT
+        </div>
+    </div>
+</body>
